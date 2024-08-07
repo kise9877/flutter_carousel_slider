@@ -4,7 +4,8 @@ import 'dart:async';
 
 import 'package:carousel_slider/carousel_state.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    hide CarouselController, CarouselScrollPhysics, CarouselView;
 
 import 'carousel_controller.dart';
 import 'carousel_options.dart';
@@ -355,7 +356,7 @@ class CarouselSliderState extends State<CarouselSlider>
                 BuildContext storageContext = carouselState!
                     .pageController!.position.context.storageContext;
                 final double? previousSavedPosition =
-                    PageStorage.of(storageContext)?.readState(storageContext)
+                    PageStorage.of(storageContext).readState(storageContext)
                         as double?;
                 if (previousSavedPosition != null) {
                   itemOffset = previousSavedPosition - idx.toDouble();
